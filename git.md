@@ -3,6 +3,7 @@
   - [2.브랜치 기본 사용법](#2브랜치-기본-사용법)
   - [3. 머지란?](#3-머지란)
   - [4. conflict 해결 방법](#4-conflict-해결-방법)
+- [두개의 git 계정 사용하기](#두개의-git-계정-사용하기)
 
 # branch
 
@@ -73,3 +74,28 @@ ex) open main.txt ->파일을 열어 선택해서 나머지 수동으로 삭제 
  git status -> git merge --continue -> fast-forward가 아니기떄문에 커밋메세지가 뜹니다.
  ->git hist 으로 확인
   checkcheck
+
+  # 두개의 git 계정 사용하기
+  https://dublin-java.tistory.com/62
+cd  .ssh/
+`vi config`  `cat ~/.ssh/config`
+```
+# personal account-austin 
+Host github.com-austin-thwoo
+	HostName austin-thwoo@naver.com
+	User austin-thwoo
+   	IdentityFile ~/.ssh/austin
+# company
+Host github.com-company
+	HostName public@laonstory.com
+	User laon-public
+	IdentityFile ~/.ssh/company
+```
+ssh
+clone  git@github.com:austin-thwoo/TIL.git
+->
+git clone git@github.com:austin-thwoo/TIL.git
+git clone git@github.com:company/TIL.git
+git commit & git push 
+git config --local user.namm&user.email
+cheeck
