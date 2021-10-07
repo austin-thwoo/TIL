@@ -4,6 +4,8 @@
   - [3. 머지란?](#3-머지란)
   - [4. conflict 해결 방법](#4-conflict-해결-방법)
   - [5. Rebase](#5-rebase)
+  - [5. Rebase --onto](#5-rebase---onto)
+  - [5. cherry pick](#5-cherry-pick)
 
 # branch
 
@@ -76,4 +78,127 @@ ex) open main.txt ->파일을 열어 선택해서 나머지 수동으로 삭제 
   checkcheck
 
   ## 5. Rebase
-  
+  tree-way-merge 상황일때 fast-forward 하는방법
+  파생된 브랜치가 바라보고 있는 master 브랜치를 최신버전 브랜치로 바꾸는것 
+```
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git hist
+* [2020-10-28] [7619c90] | h {{Ellie}}  (feature-b)
+* [2020-10-28] [769df87] | g {{Ellie}} 
+| * [2020-10-28] [aaf6522] | f {{Ellie}}  (HEAD -> master, feature-a)
+| * [2020-10-28] [59127a9] | e {{Ellie}} 
+|/  
+* [2020-10-28] [2797019] | d {{Ellie}} 
+* [2020-10-28] [e8515d8] | c {{Ellie}} 
+* [2020-10-28] [d0d15b4] | b {{Ellie}} 
+* [2020-10-28] [2c9e233] | a {{Ellie}} 
+```
+```
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git checkout feature-b
+'feature-b' 브랜치로 전환합니다
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git rebase master
+Successfully rebased and updated refs/heads/feature-b.
+
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git hist
+* [2020-10-28] [b8e768f] | h {{Ellie}}  (HEAD -> feature-b)
+* [2020-10-28] [12b0d69] | g {{Ellie}} 
+* [2020-10-28] [aaf6522] | f {{Ellie}}  (master, feature-a)
+* [2020-10-28] [59127a9] | e {{Ellie}} 
+* [2020-10-28] [2797019] | d {{Ellie}} 
+* [2020-10-28] [e8515d8] | c {{Ellie}} 
+* [2020-10-28] [d0d15b4] | b {{Ellie}} 
+* [2020-10-28] [2c9e233] | a {{Ellie}} 
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git checkout master
+'master' 브랜치로 전환합니다
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git merge feature-b
+업데이트 중 aaf6522..b8e768f
+Fast-forward
+ file7.txt | 1 +
+ file8.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 file7.txt
+ create mode 100644 file8.txt
+```
+```
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git hist
+* [2020-10-28] [b8e768f] | h {{Ellie}}  (HEAD -> master, feature-b)
+* [2020-10-28] [12b0d69] | g {{Ellie}} 
+* [2020-10-28] [aaf6522] | f {{Ellie}}  (feature-a)
+* [2020-10-28] [59127a9] | e {{Ellie}} 
+* [2020-10-28] [2797019] | d {{Ellie}} 
+* [2020-10-28] [e8515d8] | c {{Ellie}} 
+* [2020-10-28] [d0d15b4] | b {{Ellie}} 
+* [2020-10-28] [2c9e233] | a {{Ellie}} 
+```
+```
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git branch -d feature-a
+feature-a 브랜치 삭제 (과거 aaf6522).
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git branch -d feature-b
+feature-b 브랜치 삭제 (과거 b8e768f).
+austin@laonstory-mac-austinui-MacBookPro git-rebase % git hist
+* [2020-10-28] [b8e768f] | h {{Ellie}}  (HEAD -> master)
+* [2020-10-28] [12b0d69] | g {{Ellie}} 
+* [2020-10-28] [aaf6522] | f {{Ellie}} 
+* [2020-10-28] [59127a9] | e {{Ellie}} 
+* [2020-10-28] [2797019] | d {{Ellie}} 
+* [2020-10-28] [e8515d8] | c {{Ellie}} 
+* [2020-10-28] [d0d15b4] | b {{Ellie}} 
+* [2020-10-28] [2c9e233] | a {{Ellie}} 
+```
+
+## 5. Rebase --onto
+```
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % git hist
+* [2020-10-28] [8f94795] | Add profile UI {{Ellie}}  (HEAD -> profile-ui)
+| * [2020-10-28] [f2b9178] | Add ProfileService Interface {{Ellie}}  (profile)
+| * [2020-10-28] [cd9c9e7] | Add tests for ProfileService {{Ellie}} 
+| * [2020-10-28] [dc89240] | Add ProfileService {{Ellie}} 
+|/  
+* [2020-10-28] [bbac9d0] | Add LoginService {{Ellie}}  (master)
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % git checkout master
+'master' 브랜치로 전환합니다
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % git merge profile-ui
+업데이트 중 bbac9d0..8f94795
+Fast-forward
+ profile-ui.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 profile-ui.txt
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % git hist
+* [2020-10-28] [8f94795] | Add profile UI {{Ellie}}  (HEAD -> master, profile-ui)
+| * [2020-10-28] [f2b9178] | Add ProfileService Interface {{Ellie}}  (profile)
+| * [2020-10-28] [cd9c9e7] | Add tests for ProfileService {{Ellie}} 
+| * [2020-10-28] [dc89240] | Add ProfileService {{Ellie}} 
+|/  
+* [2020-10-28] [bbac9d0] | Add LoginService {{Ellie}} 
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % 
+```
+-> master에서 파생된 profile을 개발 진행중 profile을 바라보고 있는 profile-ui 가 있다면  porfile-ui를  master에 rebase시키는 과정
+
+## 5. cherry pick
+  ![cherryPic.png](cherryPick.png)
+  개발중간에 발생한 커밋 한 영역만 master branch에 merge하고 싶을 때, 원하는 커밋만 쏘옥 가져옴
+
+```
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % git hist
+* [2020-10-28] [8f94795] | Add profile UI {{Ellie}}  (HEAD -> master, profile-ui)
+| * [2020-10-28] [f2b9178] | Add ProfileService Interface {{Ellie}}  (profile)
+| * [2020-10-28] [cd9c9e7] | Add tests for ProfileService {{Ellie}} 
+| * [2020-10-28] [dc89240] | Add ProfileService {{Ellie}} 
+|/  
+* [2020-10-28] [bbac9d0] | Add LoginService {{Ellie}} 
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % git cherry-pick f2b9178
+[master d48f90b] Add ProfileService Interface
+ Author: Ellie <dream.coder.ellie@gmail.com>
+ Date: Wed Oct 28 22:55:14 2020 +0900
+ 1 file changed, 1 insertion(+)
+ create mode 100644 profile-interface.txt
+austin@laonstory-mac-austinui-MacBookPro git-rebase-onto % git hist
+* [2020-10-28] [d48f90b] | Add ProfileService Interface {{Ellie}}  (HEAD -> master)
+* [2020-10-28] [8f94795] | Add profile UI {{Ellie}}  (profile-ui)
+| * [2020-10-28] [f2b9178] | Add ProfileService Interface {{Ellie}}  (profile)
+| * [2020-10-28] [cd9c9e7] | Add tests for ProfileService {{Ellie}} 
+| * [2020-10-28] [dc89240] | Add ProfileService {{Ellie}} 
+|/  
+* [2020-10-28] [bbac9d0] | Add LoginService {{Ellie}} 
+```
+branch에서 작업기간이 오래걸리거나 특정한 commit을 가져오고 싶을때 사용
+
