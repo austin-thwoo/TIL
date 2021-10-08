@@ -174,7 +174,7 @@ austin@laonstory-mac-austinui-MacBookPro git-rebase-onto %
 -> master에서 파생된 profile을 개발 진행중 profile을 바라보고 있는 profile-ui 가 있다면  porfile-ui를  master에 rebase시키는 과정
 
 ## 5. cherry pick
-  ![picture/cherryPick.png](cherryPick.png)
+  ![picture/cherryPick.png](git/../picture/cherryPick.png)
   개발중간에 발생한 커밋 한 영역만 master branch에 merge하고 싶을 때, 원하는 커밋만 쏘옥 가져옴
 
 ```

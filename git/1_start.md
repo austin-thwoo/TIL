@@ -12,7 +12,7 @@
 #### git : comfortable version management tool, many developers are using git and github  
 
 - git == VCS(Version Control System)
-  - ![picture/git_good.png](cherryPick.png)
+  - ![picture/git_good.png](git/../picture/git_good.png)
 - github == git cloud  
 
 #### git `why?`
