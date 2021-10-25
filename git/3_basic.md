@@ -1,6 +1,12 @@
 # 3. basic
 
-## git `Workflow`
+- [3. basic](#3-basic)
+	- [1. git `Workflow`](#1-git-workflow)
+	- [2. git add](#2-git-add)
+	- [3. git ignore](#3-git-ignore)
+	- [4. git diff](#4-git-diff)
+
+## 1. git `Workflow`
 ![gitWorkflow](git/../picture/workflow.png)
  - working directory : 작업하고 있는 파일들
  - staging area : 작업을 마치고 저장할 준비를 하고 있는 파일들
@@ -21,7 +27,7 @@
 
 
 
-## git add
+## 2. git add
 ```
 austin@laonstory-mac-austinui-MacBookPro git % echo hello world >a.txt
 austin@laonstory-mac-austinui-MacBookPro git % echo hello world >b.txt
@@ -73,12 +79,12 @@ austin@laonstory-mac-austinui-MacBookPro git % git st
 	수정함:        c.txt
 ```
 
-## git ignore 
+## 3. git ignore 
 추가하고 싶지 않은 파일들
 .gitignore 파일에 추가
 -> 깃이나 깃허브에 올리고 싶지 않은 파일들 -> 트랙 되지 않음
 
-## git diff
+## 4. git diff
 어떠한 내용이 바꼈는지 확인
 git di
 a

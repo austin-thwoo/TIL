@@ -1,4 +1,5 @@
-- [branch](#branch)
+# branch
+
   - [1.브랜치를 쓰는 이유](#1브랜치를-쓰는-이유)
   - [2.브랜치 기본 사용법](#2브랜치-기본-사용법)
   - [3. 머지란?](#3-머지란)
@@ -7,7 +8,7 @@
   - [5. Rebase --onto](#5-rebase---onto)
   - [5. cherry pick](#5-cherry-pick)
 
-# branch
+
 
 ## 1.브랜치를 쓰는 이유
 

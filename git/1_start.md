@@ -1,11 +1,10 @@
 
 # start
 
-- [start](#start)
+
   - [1. what is git & github](#1-what-is-git--github)
-      - [git : comfortable version management tool, many developers are using git and github](#git--comfortable-version-management-tool-many-developers-are-using-git-and-github)
-      - [git `why?`](#git-why)
   - [2. note](#2-note)
+  
 
 ## 1. what is git & github
 
