@@ -349,3 +349,9 @@ public class DeciderJobConfiguration {
 ```
 분기 로직에 대한 모든 일은 OddDecider가 전담하고 있습니다. 
 아무리 복잡한 분기로직이 필요하더라도 Step과는 명확히 역할과 책임이 분리된채 진행할 수 있게 되었습니다.
+
+___
+
+## JobParameter & Scope
+- Job Parameter를 사용하기 위해선 항상 Spring Batch 전용 Scope를 선언해야만 하는데요. 
+크게 __@StepScope와 @JobScope__ 2가지가 있습니다. 
