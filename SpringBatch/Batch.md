@@ -366,3 +366,17 @@ __@JobScope는 Step__ 선언문에서 사용 가능하고, __@StepScope는 Taskl
 현재 Job Parameter의 타입으로 사용할 수 있는 것은 Double, Long, Date, String 이 있습니다. 
 아쉽지만 LocalDate와 LocalDateTime이 없어 String 으로 받아 타입변환을 해서 사용해야만 합니다.
 
+## @StepScope & @JobScope 
+Spring Batch는 @StepScope와 @JobScope 라는 아주 특별한 Bean Scope를 지원합니다. 
+아시다시피, Spring Bean의 기본 Scope는 singleton인데요. 
+그러나 아래처럼 Spring Batch 컴포넌트 (Tasklet, ItemReader, ItemWriter, ItemProcessor 등)에 @StepScope를 사용하게 되면
+![pictures/scopeCode.png](SpringBatch/../picture/scopeCode.png)
+Spring Batch가 Spring 컨테이너를 통해 지정된 __Step의 실행시점에 해당 컴포넌트를 Spring Bean으로 생성__ 합니다. 
+마찬가지로 @JobScope는 Job 실행시점에 Bean이 생성 됩니다. 
+즉, __Bean의 생성 시점을 지정된 Scope가 실행되는 시점으로 지연__ 시킵니다.
+
+bean의 실행시점을 어플리케이션 step Or job의 실행 시점으로 얻는 장점
+- 1. JobParameter의 LateBinding 가능
+ Controller나 Service와 같은 비지니스 로직 처리 단계에서 Job Parameter를 할당시킬 수 있습니다.
+- 2.   동일한 컴포넌트를 병렬 혹은 동시에 사용할때 유용
+
