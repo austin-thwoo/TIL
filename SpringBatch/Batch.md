@@ -380,3 +380,11 @@ bean의 실행시점을 어플리케이션 step Or job의 실행 시점으로 �
  Controller나 Service와 같은 비지니스 로직 처리 단계에서 Job Parameter를 할당시킬 수 있습니다.
 - 2.   동일한 컴포넌트를 병렬 혹은 동시에 사용할때 유용
 
+## JobParamrer의 오해
+Job Parameters는 Step이나, Tasklet, Reader 등 Batch 컴포넌트 Bean의 생성 시점에 호출할 수 있습니다만,
+정확히는 __Scope Bean을 생성할때만 가능합니다.__ 
+즉, @StepScope, @JobScope bean을 생성할때만 JobParameter가 생성되기때문에 사용할 수 있습니다.
+
+**즉, Bean을 메소드나 클래스 어느 것을 통해서 생성해도 무방하나 Bean의 Scope는 Step이나 Job이어야 한다는 것을 알 수 있습니다.
+JobParameters를 사용하기 위해선 꼭 @StepScope, @JobScope로 Bean을 생성해야한다는 것을 잊지마세요.**
+
