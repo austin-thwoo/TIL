@@ -354,4 +354,15 @@ ___
 
 ## JobParameter & Scope
 - Job Parameter를 사용하기 위해선 항상 Spring Batch 전용 Scope를 선언해야만 하는데요. 
-크게 __@StepScope와 @JobScope__ 2가지가 있습니다. 
+크게 __@StepScope 와 @JobScope__ 2가지가 있습니다. 
+사용법은 아래와 같이 SpEL로 선언해서 사용하시면 됩니다
+```
+@Value("#{jobParameters[파라미터명]}")
+```
+![picture/@Scope.png](SpringBatch/../picture/@Scope.png)
+
+__@JobScope는 Step__ 선언문에서 사용 가능하고, __@StepScope는 Tasklet이나 ItemReader, ItemWriter, ItemProcessor에서 사용할 수 있습니다.__
+
+현재 Job Parameter의 타입으로 사용할 수 있는 것은 Double, Long, Date, String 이 있습니다. 
+아쉽지만 LocalDate와 LocalDateTime이 없어 String 으로 받아 타입변환을 해서 사용해야만 합니다.
+
