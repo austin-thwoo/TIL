@@ -5,6 +5,8 @@
 	- [2. git add](#2-git-add)
 	- [3. git ignore](#3-git-ignore)
 	- [4. git diff](#4-git-diff)
+	- [5. git commit](#5-git-commit)
+	- [6. commit tip](#6-commit-tip)
 
 ## 1. git `Workflow`
 ![gitWorkflow](git/../picture/workflow.png)
@@ -86,5 +88,21 @@ austin@laonstory-mac-austinui-MacBookPro git % git st
 
 ## 4. git diff
 어떠한 내용이 바꼈는지 확인
-git di
-a
+
+## 5. git commit 
+git commit == staging area 애 있는 변경 사항을 git repository로 옮겨주는 역할 
+보통 커밋메세지에 title description로 작성을 합니다
+or
+> git add .
+> git commit -m(메세지명령어)	"[커밋 메세지]" 
+> q를 눌러 밖으로 빠져나온 다음
+
+## 6. commit tip
+repository => histroy 의 창고 => 다만들고나서 커밋하면 큰 의미가 없습니다.
+작은 단위로 만들어 나가는것이 좋음
+but commit1, commit2, commit3, ..... 처럼 의미없는것은 하지말것
+페이지나 작은 기능 단위로 하는것이 좋습니다. -> 원하는 작업단위로 볼 수 있고 원하지 않는 커밋을 지울수도 있도록
+
+**주의점 : 커밋할때 겸사겸사 다른것도 수정하거나 추가해서 커밋하면 안됨
+
+

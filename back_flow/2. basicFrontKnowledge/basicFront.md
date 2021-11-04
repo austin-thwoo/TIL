@@ -102,9 +102,9 @@ __JS(JavaScript)__
 
 
 
-- ## HTML
+- ## 🔥HTML
 - https://opentutorials.org/course/3084
-- ## CSS
+- ## 🔥CSS
 - https://opentutorials.org/course/3086
-- ## JavaScript
+- ## 🔥JavaScript
 - https://opentutorials.org/course/3085
