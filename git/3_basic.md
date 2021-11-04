@@ -10,6 +10,7 @@
 	- [7. useful tip when fileUpdate](#7-useful-tip-when-fileupdate)
 	- [8. view version list](#8-view-version-list)
 	- [9. make log prtty](#9-make-log-prtty)
+	- [10. log deepening content](#10-log-deepening-content)
 
 ## 1. git `Workflow`
 ![gitWorkflow](git/../picture/workflow.png)
@@ -149,4 +150,21 @@ mv(파일이름 변경) ->명령어또한 마찬가지
 
 로그를 볼때마다 명령어를 쓰기 어려우니 alias로 등록해서 사용하자
 >git config --global alias.[사용하고싶은 별칭] "log --graph --all --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --date=short"
+
+## 10. log deepening content
+> git log -3
+> git log --online -3
+> git log --author="H.austin"
+> git log --before="2020-09-09"
+> git log --gre="project"
+> git log -S "about"
+> git log -S "about" -p
+> git log -p about.txt
+> git log -s about .txt
+> git log HEAD
+> git log HEAD~1
+> git show [해쉬코드]
+> git show [해쉬코드]:user_repo.txt
+> git show [해쉬코드] [해쉬코드]
+
 
