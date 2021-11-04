@@ -9,6 +9,7 @@
 	- [6. commit tip](#6-commit-tip)
 	- [7. useful tip when fileUpdate](#7-useful-tip-when-fileupdate)
 	- [8. view version list](#8-view-version-list)
+	- [9. make log prtty](#9-make-log-prtty)
 
 ## 1. git `Workflow`
 ![gitWorkflow](git/../picture/workflow.png)
@@ -135,4 +136,17 @@ mv(파일이름 변경) ->명령어또한 마찬가지
 </br>
 커밋의 순서를 역순으로(가장 최신것이 가장 밑에) 보고싶다면
 >git log --online --reverse
+
+## 9. make log prtty
+> git --pretty=onlie 하면 해쉬 다 볼 수 있음
+
+깃사이트에서 reference -> log -> 밑에내리면 포맷 명령어 많습니다
+
+>git log --oneline(간단하게 보기) --graph(브랜치의 이동을보기) --all(전체브랜치를 보기)
+
+쓰기편한 git pretty format :
+>git log --graph --all --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --date=short
+
+로그를 볼때마다 명령어를 쓰기 어려우니 alias로 등록해서 사용하자
+>git config --global alias.[사용하고싶은 별칭] "log --graph --all --pretty=format:'%C(yellow)[%ad]%C(reset) %C(green)[%h]%C(reset) | %C(white)%s %C(bold red){{%an}}%C(reset) %C(blue)%d%C(reset)' --date=short"
 
