@@ -8,6 +8,7 @@
 	- [5. git commit](#5-git-commit)
 	- [6. commit tip](#6-commit-tip)
 	- [7. useful tip when fileUpdate](#7-useful-tip-when-fileupdate)
+	- [8. view version list](#8-view-version-list)
 
 ## 1. git `Workflow`
 ![gitWorkflow](git/../picture/workflow.png)
@@ -110,3 +111,28 @@ but commit1, commit2, commit3, ..... 처럼 의미없는것은 하지말것
 terminal 명령어 rm 을 이용하면 staging area에 포함 되지 않지만 
 >git rm 명령어를 이용하면 바로 staging area에 포함됩니다.
 mv(파일이름 변경) ->명령어또한 마찬가지
+## 8. view version list
+ >git log 
+
+=> 위에 있을수록 최신
+=> 방햘키로 아래로 이동
+=> 커밋아이디, 누가 만들었는지, 시간, 타이틀
+</br>
+>git patch or git -p
+
+=> 어떤내용이 바뀌었는지
+</br>
+>git log --onlinse
+
+->해쉬코드 앞자리와 커밋 메세지 정도 볼 수 있음
+</br>
+원하는 커밋으로 돌아가기 
+해쉬코드 복사한다음 
+>git checkout  [해쉬코드]
+
+
+사용하면 해당 commit 으로 head(현재 바락보고 있는 커밋)가 옮겨지게 됩니다
+</br>
+커밋의 순서를 역순으로(가장 최신것이 가장 밑에) 보고싶다면
+>git log --online --reverse
+
