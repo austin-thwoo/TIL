@@ -7,6 +7,7 @@
 	- [4. git diff](#4-git-diff)
 	- [5. git commit](#5-git-commit)
 	- [6. commit tip](#6-commit-tip)
+	- [7. usefill tip when fileUpdate](#7-usefill-tip-when-fileupdate)
 
 ## 1. git `Workflow`
 ![gitWorkflow](git/../picture/workflow.png)
@@ -105,4 +106,7 @@ but commit1, commit2, commit3, ..... 처럼 의미없는것은 하지말것
 
 **주의점 : 커밋할때 겸사겸사 다른것도 수정하거나 추가해서 커밋하면 안됨
 
-
+## 7. usefill tip when fileUpdate
+terminal 명령어 rm 을 이용하면 staging area에 포함 되지 않지만 
+>git rm 명령어를 이용하면 바로 staging area에 포함됩니다.
+mv(파일이름 변경) ->명령어또한 마찬가지
