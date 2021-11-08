@@ -152,7 +152,7 @@ git st
 디렉토리에 있느 ㄴ파일 정리가 됩니다. 
 gitmerge --continue
 
-## what`s the Rebase
+## 5. what`s the Rebase
 three-way-merge 하고도 히스토리 남기지 않는 방법
  ![branchMerge](git/../picture/rebase1.png)
  feature A가 파생된 d commit에서 
@@ -171,3 +171,15 @@ git checkout master
 git merge [병합할 브랜치]
 git branch -d [머지된것]
 git st
+
+
+## 6. cherry pick
+ ![branchMerge](git/../picture/cherrypick1.png)
+원하는 commit만 merge 하는 방법
+
+해당커밋의 해쉬코드 복사후 
+
+붙이고싶은 브랜치에서 
+>git cherry-pick [해쉬코드]
+
+
