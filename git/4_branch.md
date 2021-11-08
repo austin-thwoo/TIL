@@ -74,3 +74,27 @@ merge커밋이 완료됩니다.
 
 ![branchMerge](git/../picture/--no-ff.png)
 
+
+## 3. three-way merge
+![branchMerge](git/../picture/three-way-merge.png)
+
+feature A의 포인터가 가리키는 d commit에서 변경사항이 있는 g커밋이 있다면
+
+![branchMerge](git/../picture/three-way-merge2.png)
+
+ffm을 하게 될 경우 g commit의 변경사항을 잃어버림
+원래의 브랜치에서 새로운 커밋이 발생했다면 three-way-merge를 이용애햐 합니다
+![branchMerge](git/../picture/three-way-merge3.png)
+master브랜치 + 파생된 feature A=new commit
+
+#### demo
+![branchMerge](git/../picture/three-way-merge1.png)
+ d commit이 파생된 master브랜치에서 새로운 e, f commit이 발생 했기때문에 fast-forward-merge가 불가능
+ 이런경우에 
+ >git merge featureB 동시에 묶어주는 merge commit이 만들어집니다.
+
+ --> git merge의 경우 fast-forward가 가능하다면 이뤄지고 불가능하다면 따로 merge commit이 만들어집니다.
+ 절대 하고싶지 않다면 git merge --no-ff명령어를 통해서 할 수 있습니다.
+
+ 
+ 
