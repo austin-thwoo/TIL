@@ -97,4 +97,57 @@ master브랜치 + 파생된 feature A=new commit
  절대 하고싶지 않다면 git merge --no-ff명령어를 통해서 할 수 있습니다.
 
  
- 
+ ## 4. Conflict 해결
+#### merge conflict? : git이 merge할 때 무언가 문제가 있어서 자동적으로 해결이 안된, 무언가 충돌이 났을때 즉, 두가지의 branch에서 같은 파일을 수정햇을떄 어떤 내용을 받아들여야 할지 모를때 발생하게 됩니다.
+
+이상황에서 merge를 하게되면 에러가 발생하게 됩니다.
+그리고 파일의 내용등 수정된 곳을 살펴보면 새롭게 자동으로 삽입된 문자열 등이 잇는것을 확인할 수 있습니다.
+
+__4-1. 수동으로 하는방법__ 
+해당 파일을 열어 수동적으로 깃에서 추가해준 내용을 삭제 하면 됩니다.
+###### *merge conflic만 해결하는 commit은 mergeconflic만 해결 해야하는데 은근슬쩍 변경사항 끼워팔기 금지
+수정을 하고 저장을 하고 파일을 끄고 
+merge를 취소하고 싶다면
+>git merge --abort를 이용하면 되고
+git st 확인
+>git add [파일이름] .
+git st 확인
+
+>git ㅡmerge --continue
+
+하면 commit message를 입력하고 다시
+git log(hist)확인해보면
+커밋이 잘 된것을 확인 할 수 있습니다.
+
+__4-2.VScode를 이용해서 merge conflict를 해결하는 방법__
+
+>git config --global -e 깃의 글로벌 세팅을 에딧모드로 열고
+
+>[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+이 네줄 추가해 주고
+저장 + 종료ㅕ
+
+git merge [병합하려는 브랜치 이름]
+하면 수동으로 했을때처럼 에러가 나오고
+>git mergetool 명령어를 입력하면 vscode가 열리고
+
+버튼들이 활성화 되고
+현재 있는 브랜치의 내용을 받아들인다. | 머지하고자 하는 브랜치의 변경사항을 받아들인다 | 둘다 받아들인다. | 간단하게 확인하겠다.
+![branchMerge](git/../picture/merge-conflict.png)
+저장하고 파일을 끈후 git st를 확인해보면 
+자동적으로 커밋할 준비가 되어있는것을 확인할 수 있지만
+
+[병합하려고 했던 merge-conflict가 발생한 backup파일이 자동적으로 생성되어있다.]
+오리지널 파일이 생성되는것이 맘에 안든다면 옵션을 꺼줘야 한다
+>git config --global mergetool.keepBackup false
+git merge --abort
+
+git st
+아직 남아있는것을 확인할 수있다.(옵션을 끄기전에 생성된 것이기 떄문)
+
+>git clean -fd
+디렉토리에 있느 ㄴ파일 정리가 됩니다. 
+gitmerge --continue
