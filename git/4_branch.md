@@ -44,7 +44,7 @@ i commit만 깔끔하게 master branch로 가져옵니다.
 즉 파생된 commit에 대한 정보가 나옵니다.
 >git branch --no-merged
  
-## fast-forward merges
+## 2. fast-forward merges
 
 ![branchMerge](git/../picture/fast-forward-merge.png)
 master브랜치의 변경사항이 없을경우 
@@ -64,4 +64,13 @@ git merge [merged branch name]       //브랜치에 있던 내용 마스터 브�
 git ls(hist)                         //확인 - 마스터 브랜치에 다 병합 되었는지
 git branch -d [merged branch name]   //마스터 브랜치에 병합 되었으니 기존에 있던 브랜치 삭제
 ```
+
+## 2.1. merge옵션 no-ff
+ffm(fast-forward-merge)이 싫다 무조곤 히스토리에 다 남기고 싶어요?
+>git merge --no-ff [브랜치이름]
+
+->commit message 입력후 종료하면
+merge커밋이 완료됩니다. 
+
+![branchMerge](git/../picture/--no-ff.png)
 
