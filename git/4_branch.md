@@ -151,3 +151,23 @@ git st
 >git clean -fd
 디렉토리에 있느 ㄴ파일 정리가 됩니다. 
 gitmerge --continue
+
+## what`s the Rebase
+three-way-merge 하고도 히스토리 남기지 않는 방법
+ ![branchMerge](git/../picture/rebase1.png)
+ feature A가 파생된 d commit에서 
+ 브런치가 수정되었다면 fast-forward가 아닌 three-way-merge가 일어나게 됩니다.
+ 
+ ![branchMerge](git/../picture/rebase2.png)
+이렇게 참조의 방향을 바꾸면 fast-forward가 가능합니다.
+
+###### *주의 : 다른개발자와 하게 되면 conflict가 발생할 수 있습니다.
+
+#### demo
+
+>git checkout [병합할 브랜치]
+git rebase master
+git checkout master
+git merge [병합할 브랜치]
+git branch -d [머지된것]
+git st
