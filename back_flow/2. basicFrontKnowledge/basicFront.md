@@ -1,4 +1,12 @@
 # 기초 Frontend 지식
+- [기초 Frontend 지식](#기초-frontend-지식)
+    - [(1) 프론트엔드 개발자가 되려면?](#1-프론트엔드-개발자가-되려면)
+    - [(2). 프론트엔드가 갖춰야 할 기술적 소양](#2-프론트엔드가-갖춰야-할-기술적-소양)
+      - [1. 네트워크 (Network)](#1-네트워크-network)
+      - [2. 버전 관리 (Version Control)](#2-버전-관리-version-control)
+      - [3. 웹 프론트 프레임워크 (Web Front Framework)](#3-웹-프론트-프레임워크-web-front-framework)
+      - [4. modern javascript](#4-modern-javascript)
+    - [(3). 웹 퍼블리셔와 프론트엔드 개발자, 뭐가 더 좋을까?](#3-웹-퍼블리셔와-프론트엔드-개발자-뭐가-더-좋을까)
 - ## [1] what is frontEnd?
 __"프론트엔드(Front-End) 개발이란, 웹이나 앱을 사용하는 유저가 
 눈으로 보는 모든 화면의 요소들을 개발한다."__

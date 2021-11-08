@@ -11,6 +11,7 @@
 	- [8. view version list](#8-view-version-list)
 	- [9. make log prtty](#9-make-log-prtty)
 	- [10. log deepening content](#10-log-deepening-content)
+	- [12. why need tag?](#12-why-need-tag)
 
 ## 1. git `Workflow`
 ![gitWorkflow](git/../picture/workflow.png)
@@ -167,4 +168,63 @@ mv(파일이름 변경) ->명령어또한 마찬가지
 > git show [해쉬코드]:user_repo.txt
 > git show [해쉬코드] [해쉬코드]
 
+## 12. why need tag?
+깃 히스토리에 commit들이 많아지고 로그들이점점 많아지고 길어질떄 특정한 commit 을 북마크 하고싶을떄 문자열을 사용해서 해ㅐ도 되고 
 
+![gitTag](git/../picture/gitTag.png)
+
+보통 릴리즈 버전별로 북마크같이 표시해놓습니다. 회사마다 다름
+![semanticVersion](git/../picture/semanticVersion.png)
+major : 어떤 특정한 기능이 추가등 전체적으로 변경할떄
+minor : 커다란 기능중에서 조금의 기능들이 update, modify되었을떄
+fix : 오류수정, 기능개선, 속도향상등 자잘한 변경시
+
+- >git tag [문자열]
+<hr>
+특정 커밋에 태그를 달고싶다면
+해쉬코드 복사후
+
+- >git tag [태그문자열] [해쉬코드]
+<hr>
+상세하게 작성하고 싶을떄
+
+- >git tag [태그문자열] [해쉬코드] -a -m
+or
+git tag [태그문자열] [해쉬코드] -am "Release note..."
+
+ 히스토리상에는 이름만 나오고 메세지는 안나오지만
+ - >git show [태그문자열]
+<hr>
+ 해당 repository에 있는 모든 태그들만 보고싶다면
+
+- >git tag
+<hr>
+태그 중에 특정한 문자열만 검색하고 싶다면
+
+- >git tag "[태그문자열]"
+<hr>
+실수로 만든 태그를 삭제하고 싶다면
+
+- >git tag -d [태그문자열]
+<hr>
+해당하는 태그로 이동하는 방법
+
+- >git checkout [태그문자열]
+<hr>
+태그호 이동하면서 새로운 브랜치를 만들고 싶다면
+
+- >git checkout -b [브랜치이름문자열] [태그문자열]
+<hr>
+
+서버와 싱크를 하고싶다면 
+
+- >git push origin [태그문자열]
+<hr>
+모든 태그와 싱크하고 싶다면
+
+- >git push origin --tags
+<hr>
+특정한 태그를 삭제하고 싶다면
+
+- >git push origin --delete [태그문자열]
+<hr>
