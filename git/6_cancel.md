@@ -72,3 +72,19 @@ git restore --source=0ddd7ab
 git reset --hard [해쉬코드]
 *언제든지 돌아갈 수 있지만 커밋이 이전에 된 상태에서만 가능합니다.
 
+
+## 6. cancel content save version
+서버 마스터 브랜치에 커밋되어있다면 Reset, rebase를사용하기보단 
+
+revert를 사용하는것이 적절합니다.
+
+>git revert [해쉬코드]
+
+->새로운 내용을 만들어서 변경하는 방법이므로 즉, 히스토리를 변경하지 않기에 
+->해당하는 커밋에 해당하는 변경사항을 다시 되돌려주는 명령어
+
+>git revert --no-commit [해쉬코드]
+
+->변경사항을 자동으로 commit 하지 않고 staging area에 추가됩니다.
+
+
