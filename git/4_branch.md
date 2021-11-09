@@ -1,4 +1,27 @@
 ## 1. Why should I use branch?
+
+- [1. Why should I use branch?](#1-why-should-i-use-branch)
+- [>git branch --all](#git-branch---all)
+- [2. fast-forward merges](#2-fast-forward-merges)
+    - [demo](#demo)
+- [2.1. merge옵션 no-ff](#21-merge옵션-no-ff)
+- [3. three-way merge](#3-three-way-merge)
+    - [demo](#demo-1)
+- [4. Conflict 해결](#4-conflict-해결)
+    - [merge conflict? : git이 merge할 때 무언가 문제가 있어서 자동적으로 해결이 안된, 무언가 충돌이 났을때 즉, 두가지의 branch에서 같은 파일을 수정햇을떄 어떤 내용을 받아들여야 할지 모를때 발생하게 됩니다.](#merge-conflict--git이-merge할-때-무언가-문제가-있어서-자동적으로-해결이-안된-무언가-충돌이-났을때-즉-두가지의-branch에서-같은-파일을-수정햇을떄-어떤-내용을-받아들여야-할지-모를때-발생하게-됩니다)
+        - [*merge conflic만 해결하는 commit은 mergeconflic만 해결 해야하는데 은근슬쩍 변경사항 끼워팔기 금지](#merge-conflic만-해결하는-commit은-mergeconflic만-해결-해야하는데-은근슬쩍-변경사항-끼워팔기-금지)~
+- [5. what`s the Rebase](#5-whats-the-rebase)
+        - [*주의 : 다른개발자와 하게 되면 conflict가 발생할 수 있습니다.](#주의--다른개발자와-하게-되면-conflict가-발생할-수-있습니다)
+    - [demo](#demo-2)
+- [6. cherry pick](#6-cherry-pick)
+
+
+
+
+
+
+
+
 서비스 하고있는 제품의 branch는 master 브랜치에서
  새롭게 추가할 기능은 feature A라는 브랜치에서 작업한다면 
  feature A, feature B 등등 각기다른 개발자가 개발하기 떄문에
@@ -21,7 +44,7 @@ i commit만 깔끔하게 master branch로 가져옵니다.
 >git branch --all
 ---
 새로운 브랜치를 만들고 싶다면
->git brnach [브랜치이름]
+>git brnach [브랜치이름]`
 
  브랜치를 만드는것은 새로운 무언가를 만드는게 아니라 새로운 포인터를 만드는 개념입니다.
 
