@@ -1,5 +1,3 @@
-## 1. Why should I use branch?
-
 - [1. Why should I use branch?](#1-why-should-i-use-branch)
 - [>git branch --all](#git-branch---all)
 - [2. fast-forward merges](#2-fast-forward-merges)
@@ -15,7 +13,7 @@
     - [demo](#demo-2)
 - [6. cherry pick](#6-cherry-pick)
 
-
+## 1. Why should I use branch?
 
 
 

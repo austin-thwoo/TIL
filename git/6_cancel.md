@@ -1,4 +1,11 @@
 # UNDO
+- [UNDO](#undo)
+  - [1. 실수를 만회하는 방법들](#1-실수를-만회하는-방법들)
+  - [2. cancel before commit](#2-cancel-before-commit)
+  - [3. commit modify](#3-commit-modify)
+  - [4. reset](#4-reset)
+  - [5. honey TIP](#5-honey-tip)
+  - [6. cancel content save version](#6-cancel-content-save-version)
 
 ## 1. 실수를 만회하는 방법들
 - 커밋을 성급하게 해서 모든 수정사항을 함께 commit하지 못했거나
