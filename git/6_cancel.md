@@ -50,3 +50,25 @@ git restore --source=0ddd7ab
 
 ** 서버에는 변경사항을 입력하지 않았을떄 유용합니다
 
+## 4. reset
+
+>git reset [해쉬코드]
+
+원하는 포인터를 가리키게 됩니다.
+작업하고 있던 내용들도 초기화
+
+>git restore .
+>git clean -fd
+
+>git reset --hard HEAD~2
+>git reset --soft HEAD~2
+
+다시 원상태로 돌아가고 싶다면?
+
+## 5. honey TIP
+>git reflog
+(reference log)
+
+git reset --hard [해쉬코드]
+*언제든지 돌아갈 수 있지만 커밋이 이전에 된 상태에서만 가능합니다.
+
