@@ -41,3 +41,12 @@ git restore --source=[해쉬코드]
 git restore --source=0ddd7ab
 
 
+## 3. commit modify
+커밋메세지 변경하기
+>git commit --amend -m "[커밋메세지]" 
+
+커밋 내용 변경하기
+> git commit --amend
+
+** 서버에는 변경사항을 입력하지 않았을떄 유용합니다
+
