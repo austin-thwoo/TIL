@@ -6,6 +6,10 @@
     - [(3) 운영 체제의 위치](#3-운영-체제의-위치)
   - [🔥[2] 리눅스 터미널 명령어 모음](#2-리눅스-터미널-명령어-모음)
   - [🔥[3] 운영체제의 구조 및 동작원리](#3-운영체제의-구조-및-동작원리)
+    - [1. 운영체제의 구조](#1-운영체제의-구조)
+    - [2.  운영체제의 동작원리](#2--운영체제의-동작원리)
+      - [1. Dual-Mode Execution](#1-dual-mode-execution)
+      - [2. Timer](#2-timer)
   - [🔥[4] 프로세스 관리](#4-프로세스-관리)
   - [🔥[5] 쓰레드](#5-쓰레드)
   - [🔥[6] 동시성과 병렬성 이해하기](#6-동시성과-병렬성-이해하기)
@@ -70,10 +74,10 @@ __사용자 프로그램(Application)__ 은 특정 운영체제에 맞춰서 만
 따라서 리눅스에서 사용하는 '터미널'은 명령을 내려 컴퓨터를 제어하는 곳이라고 생각하면 된다.
 
 
- 터미널 사용방법
+ 
+터미널 사용방법
  기초 터미널 명령어
 grep, awk, sed, lsof, curl, wget, tail, head, less, find, ssh, kill
-
 <hr>
 
  
@@ -309,13 +313,157 @@ __shutdown [옵션] 시간 [메시지]__
 -k : 경고 메시지만 출력하고 실제로는 shutdown 하지 않는다('Just Kidding'의 의미).
 
 
-
-
+[basic command description](https://www.thomas-krenn.com/en/wiki/Cmd_commands_under_Windows)
 
 ## 🔥[3] 운영체제의 구조 및 동작원리
-Cmd commands under Windows
-OS들의 일반적인 작동 방식
-86
+### 1. 운영체제의 구조
+예전 DOS 시절 운영체제에서는 자원의 효율성이 굉장히 떨어졌었는데요.
+
+
+예전에는 메모리에 여러 가지  작업들이 올라가지 못하였습니다. 
+예를 들어 수행해야 할 작업-1과 작업-2가 있다고 생각해봅시다.
+
+작업-1은 CPU를 사용한 후 I/O 장치를 사용하고,
+작업-2는 CPU만을 사용하는 작업이라고 예를 들어 보겠습니다.
+
+작업-1이 먼저 수행이 되면서 CPU를 사용하고 I/O를 사용하는 동안 CPU는 놀고 있음에도 불구하고 작업-2는 메모리에 올라가있지 않기 때문에 작업-1의 전체적인 작업이 끝나기 전까지 작업을 시작하지 못하였습니다. (  I/O 장치를 사용할 때도 마찬가지입니다. )
+이러한  유연하지 않은 구조는 컴퓨터 전체의 효율성을 떨어뜨렸습니다. 
+그래서 생각해낸 것이 CPU와 I/O를 바쁘게 하자!이고 그것이 바로 Multiprogramming입니다.
+
+- ####  1-1. Multiprogramming
+
+  - Multiprogramming은 여러 작업들이 동시에 메모리에 올라가게 됩니다.
+그리고 위와 같이 작업-1이 수행되는 동안 CPU가 대기 상태로 들어가고 I/O를 수행할 때 작업-2는 
+대기 상태인 CPU를 사용하게 함으로써 유연성을 제공하여 효율성을 높이는 방법입니다. 반대로 I/O가 대기 상태일 때는
+I/O가 필요한 작업에게 그 자원을 할당해줍니다.
+
+- ####  1-2. Multitasking
+
+  - Multiprogramming에도 단점이 있었는데요! 그것은 바로 작업들마다 자원의 사용에 시간 차이가 생기기 때문입니다.
+예를 들어보겠습니다. 만약에 작업-1이 CPU를 사용하고 I/O를 사용하게 되면 CPU는 작업-2에게 할당되어 작업-2는 
+CPU를 사용하게 됩니다. 하지만 만약 작업-1의 I/O 사용시간이 길어지면 작업-2가 CPU를 이용한 작업을 끝내도 I/O 작업으로 
+들어가지 못하고 계속 대기하게 됩니다. 그럼 이때도 역시 위와 마찬가지의 CPU 자원의 낭비가 일어나게 되는 것입니다. 
+이러한 낭비는 효율성을 떨어뜨리는 결과를 가져옵니다.
+
+그래서 등장한 것이 Multitasking입니다.
+Multitasking은 Multiprogramming의 논리의 확장이라고 보면 됩니다.
+각각의 작업에 시간을 부여하고 CPU를 작업하다가 그 시간이 지나가면 다른 작업에게 CPU 자원을 할당해줍니다.
+그러므로 위와 같은 시간 지연으로 인한 낭비를 줄일 수 있으며 주어 진 시간은 굉장히 짧아서 빈번한 switching이 발생하게 됩니다.
+
+ 1. 만약 여러 작업들이 메모리에 올라갈 준비가 되어있다면 Job Scheduling을 통해 메모리에 올리고
+ 2. 메모리에 올라와 있는 여러 작업들이 실행될 준비가 되어있다면 CPU Scheduling을 통해 조정합니다
+ 3. 그리고 작업의 process가 메모리에 맞지 않는다면 swapping out되어 다른 작업이 swapping in 됩니다.
+
+### 2.  운영체제의 동작원리
+
+운영체제는 이전 포스팅에서 설명하였듯이 interrupt(event)-driven 방식입니다.
+  1. H/W interrupts
+  2. S/W interrupts - trap( or exception)
+      - S/W errors : 흔히 프로그래밍하면서 나올 수 있는 error ( divide by zero, stack overflows...)
+      - 운영체제 services 들에 대한 요청 -> System Call 
+
+운영체제는 한 작업의 error로 인해 자원을 계속해서 점유하는 일과같이 효율성과 컴퓨터의 동작을 저해하는 행위를
+보호해야 할 수단을 필요로 합니다. 그러한 방법에는 크게
+ Dual-Mode Execution, Timer 
+두 가지가 존재합니다. 
+
+#### 1. Dual-Mode Execution
+
+조건은 H/W의 지원이 요구됩니다. 시스템을 보다 안전하게 하는 것이 목표이죠.
+이 방법은 Mode-Bit라는 것을 필요로 하는데, Mode에는 Kernel Mode와 User Mode 두 가지가 있습니다.
+
+프로그램이 메모리에 올라가서 작업들을 수행할 때 명령어들을 하나씩 읽어와 수행하게 되는데요
+하지만 사용자가 Kernel 상의 작업, 즉 컴퓨터의 Core에 해당하는 작업들을 직접 건드려 명령하고 수행을 하게 된다면
+자칫 잘못하다는 시스템 전체에 큰 악영향을 끼칠 수 있게 됩니다. 그것을 방지하고자 이러한 방법을 도입하게 되었는데요
+
+각각 명령어에 Mode-bit를 심어 해당 명령어의 Mode-bit와 현재 시스템 상의 Mode-bit가 
+같을 시에만 해당 명령어를 수행하게끔 하는 것입니다.  
+예를 들어보겠습니다.
+```
+printf("출력");
+```
+
+위의 코드는 C에서 콘솔 창에 특정 문구를 출력하는 코드입니다.
+모니터를 통해 콘솔 창에 출력하는 행위는 I/O를 이용하여 출력을 하게 됩니다.
+이러한 I/O 작업은 OS만 접근이 가능해야 하는데요.
+위의 함수의 내용을 열어보면 여러 가지 명령어들이 있고 그중에 INT 80이라는 명령어를 찾아볼 수 있습니다.
+위의 명령어는 특수 명령어로서 현재 Mode를 바꿔주는 역할을 합니다. 
+즉 이전까지 수행되던 명령어들은 User-Mode였다면 화면에 출력하기 위해서는 Kernel-Mode가 필요하므로 
+위의 명령어를 통해 Mode를 Kernel-Mode로 변환 후 I/O 장치에 출력을 하는 명령을 OS가 내리게 됩니다.
+그리고 함수가 끝날 때는 다시 User-Mode로 돌아게 되겠죠!
+
+이러한 bit를 바꾸는 행위를 System-Call이라고 합니다. 굉장히 중요한 개념이죠!
+이렇게 Kernel에서 수행되어야 하는 몇 가지 중요한 명령어들이 있습니다. 위에서 언급한 운영체제의 Services들이죠
+그 예를 들어보자면
+  1. Turn off interrupts 
+  2. Access I/O devices 
+  3. Set value of timer
+등이 있고 이외에도 여러 가지 명령어들이 있습니다.
+
+System Call이 일어나게 되면 앞선 포스팅에서 Interrupt Vector Table과 Interrupt Vector Routine의 동작원리와 같이
+해당 System Call에 대한 번호를 Table에서 찾아 Routine을 실행하게 됩니다. 이러한 작업은 운영체제에서 일어나게 되죠.
+밑의 사진은 System Call의 이해를 조금 더 도울 수 있을 것 같습니다.
+![picture/32001 .png](back_flow/../picture/32001.png)
+
+#### 2. Timer
+
+Timer는 간단하게 설명해드리겠습니다. 이름에서 와 닿듯이 Timer는 infinite loop 나 자원의 독점을 막습니다.
+Timer는 특정 시간이 지나면 Interrupt를 발생시키고 운영체제는 그 시간을 감소시키면서 Interrupt를 기다립니다.
+운영체제는 Timer가 끝난 작업을 종료시키고 또한 실행되기 전 Scheduling 작업 전에 Timer를 작동시킵니다.
+확실히 Dual-Mode Execution보다는 쉽게 와 닿으실 거라고 기대해봅니다
+이제 전체적으로 정리를 해보고 중요한 것은 조금 더 알아보는 시간을 갖도록 하겠습니다!
+
+운영체제는 무슨 일을 하는가!
+  1. Process management
+  2. Memory management
+  3. Storage management
+  4. Protection and Security
+
+Program vs Process
+ Program은 현재 Memory에 올라와 있는 Process들 중 실행 중인 Process입니다.
+  Process는 CPU time, Memory, files, I/O 등 여러 자원을 필요로 합니다.
+  
+운영체제의 Process Management 
+  - Process와 Thread의 CPU 위의 작업들을 Scheduling.
+ - User와 System의 Process를 생성하거나 삭제.
+  - Process의 동기화 작업이나 Communication 작업의 mechanisms을 제공. 
+
+운영체제의 Memory Management
+  - 명령어들이 순서에 맞게 실행되도록 관리.
+  - 모든 Data들이 실행되기 전 Memory에 올라갈 수 있도록 관리.
+  - Memory 공간을 할당하고 회수.
+  - 언제 어떤 것이 Memory에 올라갈지 결정.
+
+운영체제의 Services
+  사용자에게 도움을 주는 Services
+- UI 제공
+- I/O 작업 수행
+- Error Detection
+- 파일 시스템 관리
+시스템의 운영의 효율성을 제공하는 Services
+- 자원(Resources) 할당
+- Accounting
+- Protection & Security
+
+System Call
+직접적으로 사용하지 않으며 High-Level Language로 작성된 API가 제공된다.
+각 System Call에 대한 번호와 루틴은 Table의 형태로 저장된다.
+루틴이 끝난 뒤 System Call의 상태와 결괏값을 반환한다.
+
+-직접 System Call을 만들어보는 방법-
+1. System Call 함수 정의
+2. System Call 번호 할당
+3. System Call 함수 Table에 등록
+4. Kernel Rebuild & Test
+
+System Call의 종류
+- Process Control
+- File Manipulation
+- Device Manipulation
+-Information Maintenance
+- Communication
+-Protection
+
 ## 🔥[4] 프로세스 관리
 프로세스 관리 (Process Management)
 
