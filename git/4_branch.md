@@ -1,9 +1,16 @@
 - [1. Why should I use branch?](#1-why-should-i-use-branch)
+- [>git branch --all](#git-branch---all)
 - [2. fast-forward merges](#2-fast-forward-merges)
+    - [demo](#demo)
 - [2.1. merge옵션 no-ff](#21-merge옵션-no-ff)
 - [3. three-way merge](#3-three-way-merge)
+    - [demo](#demo-1)
 - [4. Conflict 해결](#4-conflict-해결)
+    - [merge conflict? : git이 merge할 때 무언가 문제가 있어서 자동적으로 해결이 안된, 무언가 충돌이 났을때 즉, 두가지의 branch에서 같은 파일을 수정햇을떄 어떤 내용을 받아들여야 할지 모를때 발생하게 됩니다.](#merge-conflict--git이-merge할-때-무언가-문제가-있어서-자동적으로-해결이-안된-무언가-충돌이-났을때-즉-두가지의-branch에서-같은-파일을-수정햇을떄-어떤-내용을-받아들여야-할지-모를때-발생하게-됩니다)
+        - [*merge conflic만 해결하는 commit은 mergeconflic만 해결 해야하는데 은근슬쩍 변경사항 끼워팔기 금지](#merge-conflic만-해결하는-commit은-mergeconflic만-해결-해야하는데-은근슬쩍-변경사항-끼워팔기-금지)
 - [5. what`s the Rebase](#5-whats-the-rebase)
+        - [*주의 : 다른개발자와 하게 되면 conflict가 발생할 수 있습니다.](#주의--다른개발자와-하게-되면-conflict가-발생할-수-있습니다)
+    - [demo](#demo-2)
 - [6. cherry pick](#6-cherry-pick)
 
 ## 1. Why should I use branch?
@@ -109,7 +116,6 @@ master브랜치 + 파생된 feature A=new commit
 
  --> git merge의 경우 fast-forward가 가능하다면 이뤄지고 불가능하다면 따로 merge commit이 만들어집니다.
  절대 하고싶지 않다면 git merge --no-ff명령어를 통해서 할 수 있습니다.
-
  
  ## 4. Conflict 해결
 #### merge conflict? : git이 merge할 때 무언가 문제가 있어서 자동적으로 해결이 안된, 무언가 충돌이 났을때 즉, 두가지의 branch에서 같은 파일을 수정햇을떄 어떤 내용을 받아들여야 할지 모를때 발생하게 됩니다.
