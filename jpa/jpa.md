@@ -1,6 +1,6 @@
 #about-jpa
 
-#### between EGER & LAZY
+#### 1. between EGER & LAZY
 Eger(즉시로딩) : 조회할때 관련된 테이블을 모두 조회하는 방법
 
 즉시로딩은 개발자가 이해할수없거나 의도하지 않은쿼리가 나갑니다
