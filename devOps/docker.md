@@ -8,3 +8,5 @@ dockerfile :첫번째는 항상
 FROM {baseImage} 
 
 WORKDIR [경로]
+
+
