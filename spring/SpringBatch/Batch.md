@@ -181,7 +181,7 @@ ___
 여기서 중요한 것은, 앞의 step에서 오류가 나면 나머지 뒤에 있는 step 들은 실행되지 못한다는 것입니다.
 
 하지만 상황에 따라 정상일때는 Step B로, 오류가 났을때는 Step C로 수행해야할때가 있습니다.
-![picture/git_good.png](git/../picture/step.png)
+![picture/git_good.png](spring/../picture/step.png)
 
 이럴 경우를 대비해 Spring Batch Job에서는 조건별로 Step을 사용할 수 있습니다.
 새로운 클래스 StepNextConditionalJobConfiguration 를 생성해서 살펴보겠습니다.

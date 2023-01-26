@@ -39,3 +39,6 @@ ModuleNotFoundError: No module named 'tensorflow'
 해결
 [https://magoker.tistory.com/114 ]
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/apple/tensorflow_macos/master/scripts/download_and_install.sh)"
+
+tensorflow
+https://pasus.tistory.com/218
