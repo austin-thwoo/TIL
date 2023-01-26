@@ -11,6 +11,6 @@
 ![picture/git_good.png](spring/../picture/2.png)
 장점 : 코드 응집
 단점 : 구조파악 어려움
-yeah
+yeahyeahyeah
 ###### 2-1. 전체구조
 ![picture/git_good.png](spring/../picture/3.png)
