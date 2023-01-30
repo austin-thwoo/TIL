@@ -1,4 +1,4 @@
-## 1. 도커
+## <span style = "color:purple"> [1]. 도커 </span>
 Docker는 컨테이너가 아니고 컨테이너를 위한 운영체제이며 각서버에 설치되어 컨테이너를 구축, 시작, 중단하는데 사용할 수 있는 명령어를 제공
 
 * 도커를 쓰는이유 
@@ -19,7 +19,7 @@ Docker는 컨테이너가 아니고 컨테이너를 위한 운영체제이며 �
     __라이브러비, 종속성데 대한 정의, 실행되는 코드가포함__
     되어 있다. 이런 도커 이미지가 인스턴스화된 것이 바로 도커 컨테이너이다.
 
-## 2. 도커 기본지식쌓기
+## <span style = "color : darkorange"> [2]. 도커 기본지식쌓기</span>
 
 
 __도커 != 가상머신__
@@ -66,7 +66,7 @@ macOS환경임에도 Linux이다
 
 
 
-## 3. <span style = "color:blue">도커 명령어</span>
+## <span style = "color:blue"> [3]. 도커 명령어</span>
 ```java
 $ docker run [이미지 이름] [실행할 명령어(optional)]
 ```
@@ -105,7 +105,8 @@ $ docker images
 도커 이미지 목록
 
 
-## 4. <span style = "color:green"> 도커파일 만들기 </span>
+## <span style = "color:green"> [4].  도커이미지 만들기 </span>
+#### {1}. 도커 파일 만들기
 도커 파일은 컨테이너 이미지를 만드는데 사용되는 단순한 텍스트 기반 지침 스크립트 이다 꼭 
 'Dockerfile'이라는 이름 의 파일로 만들자
 
@@ -120,4 +121,29 @@ CMD java -jar kees-0.0.1-SNAPSHOT.jar
 ```
 from : 베이스 이미지이다 간단하게 말해 OS라고 생각하면된다.
 RUN  : 도커 이미지가 생성되기 전에 수행할 쉘 명령어이다.
-COPY : Docker클라이언트의 현재 디렉토리에서 파일을 추가한다(ㅊ) 
+COPY : Docker클라이언트의 현재 디렉토리에서 파일을 추가한다()
+CMD  : 컨테이너 내에서 실행할 명령을 지정, 도커파일내에서 한번만 사용 가능
+
+#### {2}. docker build 명령을 사용하여 컨테이너 이미지를 빌드하기 
+```
+docker build -t getting-startd .
+```
+__-t :__  이미지에 태그를 지정해준다. 사람이 읽을 수 있는 이미지의 이름으로 생각하면 된다.
+이미지 이름을 지정했기 때문에 컨테이너를 실행할 대 해당 이미지를 참조할 수 있다.
+__.:__ 현재 디렉터리에서 Dockerfile을 찾아야 한다고 알려준다. 
+
+
+#### {3}. docker run - 만든이미지로 애플리케이션 실행하기
+
+```
+$ docker run -dp 3000:3000 getting-start
+$ docker ps 
+```
+__-dp__ : 새컨테이너를 분리된모드(백그라운드)에서 실행하고 호스트의 포트 3000과 컨테이너 포트 3000 간에 매핑을 생성하고 있다. 포트매핑이 없으면 애플리케이션에 접근할 수 없다.
+![picture/Screan Shopt](picture/dockerrun.png)
+
+
+
+
+## <span></span>5]
+https://code-masterjung.tistory.com/134
