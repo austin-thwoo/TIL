@@ -23,3 +23,11 @@
     - 생성자 : public, protected, default, private
     - 멤버변수 : public, protected, default, private
     - 지역변수 : 접근 제한자를 사용할 수 없음
+
+
+- ###  LinkedList
+  - trade-Off
+![tradeoff](picture/tradeoff.png)
+</br>
+  - Iterator
+![iterator사용법](picture/iteratorUse.png)iterator사용
