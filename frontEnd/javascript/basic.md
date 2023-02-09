@@ -1,3 +1,6 @@
+https://codepen.io/pen/?editors=0011
+
+https://www.youtube.com/watch?v=KF6t61yuPCY
 
 함수
 - alert(): 경고창
