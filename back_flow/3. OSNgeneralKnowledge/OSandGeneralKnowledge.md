@@ -18,8 +18,8 @@
 ![picture/12001.png](back_flow/../picture/12001.png)
 Processor는 일반적으로 CPU를 말한다. main memory를 보면 ROM과 RAM으로 나누어져 있다.
 
-- ROM: 비휘발성 으로 메모리에서 극히 일부를 차지한다.(수 KB)
-- RAM: 휘발성 으로 메모리의 대부분을 차지하며 실제 프로그램이 할당되는 곳이다.(수 MB ~ 수 GB)
+- **ROM: 비휘발성** 으로 메모리에서 극히 일부를 차지한다.(수 KB)
+- **RAM: 휘발성** 으로 메모리의 대부분을 차지하며 실제 프로그램이 할당되는 곳이다.(수 MB ~ 수 GB)
 
 ROM은 하드디스크와 같이 비휘발성으로 전원이 꺼져도 그 안의 내용이 계속 유지된다. RAM은 휘발성이므로 전원이 꺼지면 메모리안의 모든 내용이 지워진다.
 
@@ -831,7 +831,8 @@ CPU는 DMA 명령블록의 주소를 DMA에게 알려주고 자신은 다른 일
 ```
 
 ## 🔥[10] POSIX 기초
-POSIX 기초
+POSIX (Portable Operating System Interface)란 무엇일까?
+
 
 ## 🔥[11] 네트워크 기초 지식 정리
 stdin, stdout, stderr, pipes
