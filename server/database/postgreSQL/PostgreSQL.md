@@ -93,10 +93,13 @@ docker run --name austin-postgres
 postgres=# CREATE USER [userName] PASSWORD '[mypassword]' SUPERUSER; -- userName이란 이름의 mypassword를 비밀번호로 갖고 있는 슈퍼유저 생성
 postgres=# \du  --유저 목록, 권한보기
 postgres=# SELECT * FROM PG_SHADOW; -- 비밀번호 암호화 걸려있는 [userName] 있을꺼임
+postgres=# ALTER USER [userName] with SUPERUSER 권한부여 
 postgres=# ALTER ROLE [userName] CREATEDB  --DB생성권한부여
 postgres=# ALTER ROLE [userName] REPLICATION  --복제가능권한부여
 postgres=# CREATE DATABASE [dbName] OWNER [username];
 postgres=# \c [dbName] [userName] -- 'userName'으로 'dbName' 디비 사용가능
 [dbName]=# CREATE SCHEMA [schemaName] -- 스키마 만들기
 [dbName]=# \dn  --schema별로 소유권 리스트
+postgres=# \! clear -- 화면 꺠끗하게 하기
+
 ```
