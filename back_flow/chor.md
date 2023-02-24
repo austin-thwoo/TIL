@@ -1,8 +1,5 @@
-[[1]. IP](#1-ip)
-
-[[2]. Stack \& Queue](#2-stack--queue)
-  - [stack 이란?](#stack-이란)
-  - [Queue란?](#queue란)
+- [\[1\]. IP](#1-ip)
+- [\[2\]. Stack \& Queue](#2-stack--queue)
 
 
 ## <span style = "color:green">[1]. IP</span>
