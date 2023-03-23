@@ -81,7 +81,7 @@ docker run --name austin-postgres
 
 
 명령어로 포스트그레스 이미지를 실행시킨다 
-터미널로 접속해서 ('docker exec -it sr-postgres /bin/bash' 이지만 난 한번도 안해봤다 도커 데스크톱에서 터미널 버튼진입했다)
+터미널로 접속해서 ('docker exec -it sr-postgres /bin/bash' 이지만 난 한번도 안해봤다 도커 데스크톱에서 터미널 버튼진입했다)q
 
 ```
  # psql -U postgres 

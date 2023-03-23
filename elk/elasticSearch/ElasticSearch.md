@@ -44,18 +44,6 @@ store : 원래 필드 값이 ES에 저장되야 하는지 판단하는 플래그
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	
-
-
 
 ```javascript
 docker run -d --name elasticsearch -v /Users/austin/Documents/austin/docker/elasticsearch_volume:/usr/share/elasticsearch/data -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:7.17.9
