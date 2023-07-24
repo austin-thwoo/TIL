@@ -96,3 +96,26 @@ POST tagdoc/_update_by_query
   }
 }
 ```
+
+
+
+```java
+PUT tagdoc/_mapping
+{
+  "properties": {
+    "postCount": {
+      "type": "long",
+      "null_value": 0
+    }
+  }
+}
+PUT tagdoc/_mapping
+{
+  "properties": {
+    "shortsCount": {
+      "type": "long",
+      "null_value": 0
+    }
+  }
+}
+```
