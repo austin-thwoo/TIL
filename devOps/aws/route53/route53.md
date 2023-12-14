@@ -45,6 +45,6 @@ __새로운 방식__
 
   #### CDN
   - 전세계 어느 위치에서 접속하더라도 빠른 속도로 서비스할 수 있도록 하는 서비스
-  - Content Delivery Network
+  - Content Delivery Network의 약자
   - 전 세계에 흩어져 있는 Edge Location(캐시서버) 활용
   ![picture/CDN](picture/CDN.png)

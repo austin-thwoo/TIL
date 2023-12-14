@@ -1,3 +1,8 @@
+#자료구조
+- [\[1\]. Stack \& Queue](#1-stack--queue)
+
+
+
 ## <span style = "color:blue">[1]. Stack & Queue</span>
 ### stack 이란?
  "쌓아 올린다는 것" 
