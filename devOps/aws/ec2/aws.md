@@ -114,20 +114,53 @@ DDOS란? 네트워크에 트래픽을 의도적으로 과다하게 키워서 컴
 ![picture/cloudtrail](picture/cloudtrail.png)
 
 
+# [2]. AWS 가격정책
+![picture/pricingPolicy](picture/pricingPolicy.png)
 
+## {1}. 가격약정 할인(RI/Saving Plan)
+![picture/riNsavingPlan](picture/riNsavingPlan.png)
+## {2}. 네트워크 트래픽 비용
+__네트워크 트래픽?__ 
+- 네트워크상에서 송수신된는 모든 데이터 통신의 양
+- 홈페이지를 열고 닫을 때, 이미지/동영상 다운로드 받을 때, 메신저 대화할
+- 트래픽 양 = 용량 * 사용자 수 * 개수(4GB *10명 * 10개)=400GB
+- ![picture/trapicCost](picture/trapicCost.png)
+## {3}. 비용 최적화
 
+### (1). FinOps 클라우드 사용금액을 관리하고 운영하는 process
+![picture/optimizationStrategy](picture/optimizationStrategy.png)
+- 1. 정확한 스펙의 리소스를 사용하는가?
+- 2. 유연한 사용량의 조절
+  - fargate:사용량이 일정하지 않은 서비스에 사용권유
+- 3. 올바른 가격정책의 활용
+- 4. 다양한 스토리지 옵션 활용 
+  - ex)standardS3 storage / deep archive storage
+### (2). 오픈소스 billBot
+![picture/billbot](picture/billBot.png)
+[billBot-github](https://github.com/cremich/cdk-bill-bot/)
+billBot :aws비용레포트 일간,월간 슬랙을 통해 알림을 받는 오픈소스 솔루션
+- 아키텍쳐 핵심 : aws CUR을 쌓는것 
+  - CUR : aws Cost and Useage Report 
+- 
+# [3]. AWS CLI
+## {1}.사용
+aws
+- awsCli
+  - [최신버전의 aws-cli install](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html)
+  - 
+##
+ㅊ
+![picture/cli1](picture/cli1 .png)
+```javascript
+aws sts get-caller-identity
+```
+## {1}.유저 추가
 
+```javascript
+aws configure --profile [사용자이름]
+accessKey->
+secretKey->
+output->s
+output->
 
-
-
-
-## ec2에 베포
-1.인스턴스 생성
-2. ssh 로접속항땐 
- ![picture/Screan Shopt](picture/.png)
-<back>
-1. ec2에 내가 쓰는 언어 다운받음
-2. 내 프로젝트에 url 설정
-
-
-git -- settings --> deploy keys
+```
