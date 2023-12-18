@@ -50,8 +50,47 @@ __인스턴스 T-Family 유의점__
 ### (3) EFS
 ![picture/efs](picture/efs.png)
 ## {3}. AWS주요 네트워크 서비스
+
+### (1) VPC(Virtual Private-Network Computing)
+가상의 사설 네트워크를 구축함
+![picture/vpc](picture/vpc.png )
+  -![picture/vpc](picture/vpc-peering.png )
+    - 동일한 네트워크에 있는거섳럼 통신 가능 
+    - 위의 예시에서 A-C_D로는 불가능하고 A-D로 연결이 되어야함
+
+  -![picture/vpc](picture/vpc-peering.png ) 
+    - 중앙관리- 관리측면의 유리
+### (2) cloudFront
+-![picture/cloudfront](picture/cloudfront.png ) 
+- cdn : 클라이언트가 인터넷에 접속하는것과 가까운곳에서 컨텐츠를 캐싱해서 전세계 오리진 서버에서 배포함
+- 내가 아마존을.com 검색해서 들어갈 경우 미국 아마존 오리진 서버로 접속하는것이 아닌 현재 내위치에서 가장 가까운 클라우드엣지로케이션에 캐싱이 되어있는 서비스에 접근을 해서 네트워크를 좀더 빠르게 이용한다
+- 주요할점 :
+- ![picture/invalidation](picture/invalidation.png ) 
+### (3) route53
+- ![picture/route53](picture/route53.png ) 
+- aws dns시스템 도매인 구매/등록
+- aws내부 리소스 헬스체크 기능 
+ 다양한 route53 policy 
+ #
+
+
 ## {4}. AWS주요 데이터베이스 서비스
+### (1) RDS(RelationalDatabaseService)
+#### ![picture/rd](picture/rds.png)
+##### 1-1 RDS Multi AZ구성 ![picture/multiAz](picture/MultiAz.png)
+  - 눈으로 보이지 않지만 서로다른 가용영역에 복제품으로 SlaveDB라는 형태의 디비를 사용한다
+  - masterDB가용역역에 장애가 발생하면 수분이내에 master->slave 로 failover(장애극복기능)
+  - 장애복구 시간에 민감한 서비스라면 반드시 사용해야 하지만 비용이 두배정도 차이난다
+##### 1-2 Read Replica구성 ![picture/rr](picture/rr.png)
+  - 읽기 부화분산 기능
+  - masterdb의 부화가 생겼을떄 
+##### 1-3 dynamoDB ![picture/dynamo](picture/dynamo.png)
+  - aws가 만든 완전관리형 noSQL데이타베이스
+##### 1-4 elasticache ![picture/elasticache](picture/elasticache.png)
+  - memory크기만큼만 가능 
+  - elasticacheRedisCluster ![picture/elasticacheRediscluster](picture/elasticacheRediscluster.png)
 ## {5}. AWS주요 보안 서비스
+
 ## {6}. AWS주요 관리형 서비스
 ## ec2에 베포
 1.인스턴스 생성
