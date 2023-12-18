@@ -90,8 +90,33 @@ __인스턴스 T-Family 유의점__
   - memory크기만큼만 가능 
   - elasticacheRedisCluster ![picture/elasticacheRediscluster](picture/elasticacheRediscluster.png)
 ## {5}. AWS주요 보안 서비스
+### (1). WAF
+인터넷에서 사용하는 http,https트래픽을 모니터링하고 차단함으로써 고객의 웹 어플리케이션을 보호하는 도구
+가용성에 영향을 미치거나, 보안을 악화시키거나, 리소스를 과다하게 사용하는 등등 여러형태의 웹공격을 보호해줌
+[OWASP TOP 10](https://velog.io/@ayg0418/OWASP-Top-10/)
+![picture/waf](picture/waf.png)
+
+### (2). Shield
+DDOS란? 네트워크에 트래픽을 의도적으로 과다하게 키워서 컴퓨팅 자원에 과부화를 거는 공격
+트래픽 과부화로 인해 시스템중단,성능저하 트래픽 발생
+![picture/waf](picture/shield.png)
+![picture/shieldCostwaf](picture/shieldCost.png)
+### (3). KMS
+암호화키를 쉽게 사용하고 제어하도록 하는 서비스
+![picture/KMS](picture/KMS.png)
 
 ## {6}. AWS주요 관리형 서비스
+
+
+
+
+
+
+
+
+
+
+
 ## ec2에 베포
 1.인스턴스 생성
 2. ssh 로접속항땐 
