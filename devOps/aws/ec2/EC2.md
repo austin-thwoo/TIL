@@ -106,8 +106,12 @@ DDOS란? 네트워크에 트래픽을 의도적으로 과다하게 키워서 컴
 ![picture/KMS](picture/KMS.png)
 
 ## {6}. AWS주요 관리형 서비스
-
-
+### (1). cloudwatch
+![picture/cloudwatch](picture/cloudwatch.png)
+### (2). SNS(Simple Notificaytion Service)
+![picture/sns](picture/sns.png)
+### (3). cloudtrail
+![picture/cloudtrail](picture/cloudtrail.png)
 
 
 
