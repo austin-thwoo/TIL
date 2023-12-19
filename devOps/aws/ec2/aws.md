@@ -54,10 +54,9 @@ __인스턴스 T-Family 유의점__
 ### (1) VPC(Virtual Private-Network Computing)
 가상의 사설 네트워크를 구축함
 ![picture/vpc](picture/vpc.png )
-  -![picture/vpc](picture/vpc-peering.png )
+  -![picture/vpc](picture/vpc-peering.png){: width="150" height="80"}
     - 동일한 네트워크에 있는거섳럼 통신 가능 
     - 위의 예시에서 A-C_D로는 불가능하고 A-D로 연결이 되어야함
-
   -![picture/vpc](picture/vpc-peering.png ) 
     - 중앙관리- 관리측면의 유리
 ### (2) cloudFront
@@ -112,8 +111,8 @@ DDOS란? 네트워크에 트래픽을 의도적으로 과다하게 키워서 컴
 ![picture/sns](picture/sns.png)
 ### (3). cloudtrail
 ![picture/cloudtrail](picture/cloudtrail.png)
-
-
+</hr>
+</hr>
 # [2]. AWS 가격정책
 ![picture/pricingPolicy](picture/pricingPolicy.png)
 
@@ -141,14 +140,15 @@ __네트워크 트래픽?__
 billBot :aws비용레포트 일간,월간 슬랙을 통해 알림을 받는 오픈소스 솔루션
 - 아키텍쳐 핵심 : aws CUR을 쌓는것 
   - CUR : aws Cost and Useage Report 
-- 
+
+</hr></hr>
+
 # [3]. AWS CLI
 ## {1}.사용
 aws
 - awsCli
   - [최신버전의 aws-cli install](https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html)
-  - 
-##
+#
 ㅊ
 ![picture/cli1](picture/cli1 .png)
 ```javascript
@@ -160,7 +160,12 @@ aws sts get-caller-identity
 aws configure --profile [사용자이름]
 accessKey->
 secretKey->
-output->s
-output->
+region->ap-northeast-2
+output->json
 
+aws sts get-caller-identity --profile [사용자이름]
+or
+export AWS_PROFILE=[사용자이름]
+aws sts get-caller-identity 
 ```
+
