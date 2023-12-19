@@ -54,7 +54,7 @@ __인스턴스 T-Family 유의점__
 ### (1) VPC(Virtual Private-Network Computing)
 가상의 사설 네트워크를 구축함
 ![picture/vpc](picture/vpc.png )
-  -![picture/vpc](picture/vpc-peering.png){: width="150" height="80"}
+  -![picture/vpc](picture/vpc-peering.png){:width="20" height="80"}
     - 동일한 네트워크에 있는거섳럼 통신 가능 
     - 위의 예시에서 A-C_D로는 불가능하고 A-D로 연결이 되어야함
   -![picture/vpc](picture/vpc-peering.png ) 
